@@ -1,0 +1,115 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-midnight: var(--midnight);
+  --color-navy: var(--navy);
+  --color-navy-surface: var(--navy-surface);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-bronze: var(--bronze);
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Brand */
+  --midnight: oklch(0.18 0.04 260);
+  --navy: oklch(0.22 0.045 260);
+  --navy-surface: oklch(0.26 0.045 260);
+  --bronze: oklch(0.52 0.10 50);
+  --gold: oklch(0.76 0.12 75);
+  --gold-bright: oklch(0.84 0.12 80);
+
+  --background: var(--navy);
+  --foreground: oklch(0.97 0.005 80);
+
+  --card: var(--navy-surface);
+  --card-foreground: oklch(0.97 0.005 80);
+  --popover: var(--navy-surface);
+  --popover-foreground: oklch(0.97 0.005 80);
+
+  --primary: var(--gold);
+  --primary-foreground: oklch(0.18 0.04 260);
+  --secondary: oklch(0.30 0.04 260);
+  --secondary-foreground: oklch(0.97 0.005 80);
+
+  --muted: oklch(0.28 0.04 260);
+  --muted-foreground: oklch(0.75 0.02 80);
+  --accent: var(--gold);
+  --accent-foreground: oklch(0.18 0.04 260);
+
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: var(--gold);
+
+  --gradient-gold: linear-gradient(135deg, #944F25 0%, #C7863A 50%, #E9BF6F 100%);
+  --gradient-gold-soft: linear-gradient(135deg, rgba(199,134,58,0.18) 0%, rgba(233,191,111,0.08) 100%);
+  --shadow-gold: 0 10px 40px -12px rgba(199, 134, 58, 0.45);
+  --shadow-elevated: 0 24px 60px -20px rgba(0, 0, 0, 0.6);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility text-gradient-gold {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gradient-gold {
+  background: var(--gradient-gold);
+}
+
+@utility border-gradient-gold {
+  border-image: var(--gradient-gold) 1;
+}
